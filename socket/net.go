@@ -17,10 +17,13 @@
 package socket
 
 import (
+	"context"
 	"net"
 	"strings"
 
 	reuseport "github.com/kavu/go_reuseport"
+	"github.com/spiffe/go-spiffe/v2/spiffetls"
+	"github.com/spiffe/go-spiffe/v2/spiffetls/tlsconfig"
 )
 
 // ParseAddress parses a string representing a TCP address or UNIX socket
@@ -104,7 +107,10 @@ func Open(network, address string) (net.Listener, error) {
 	case "systemd":
 		return systemdSocket(address)
 	case "unix":
-		listener, err := net.Listen(network, address)
+		ctx, cancel := context.WithCancel(context.Background())
+		defer cancel()
+		listener, err := spiffetls.Listen(ctx, network, address, tlsconfig.AuthorizeAny())
+		//listener, err := net.Listen(network, address)
 		if err != nil {
 			return nil, err
 		}

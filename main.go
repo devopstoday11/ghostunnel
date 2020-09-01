@@ -751,10 +751,12 @@ func proxyLoggerFlags(flags []string) int {
 func getTLSConfigSource() (certloader.TLSConfigSource, error) {
 	if *useWorkloadAPI {
 		source, err := certloader.TLSConfigSourceFromWorkloadAPI(*useWorkloadAPIAddr, logger)
+
 		if err != nil {
 			logger.Printf("error: unable to create workload API TLS source: %s\n", err)
 			return nil, err
 		}
+
 		return source, nil
 	}
 
