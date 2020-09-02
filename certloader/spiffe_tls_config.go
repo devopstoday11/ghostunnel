@@ -19,9 +19,7 @@ package certloader
 import (
 	"context"
 	"crypto/tls"
-	//"crypto/x509"
 
-	//"github.com/spiffe/go-spiffe/spiffe"
 	"github.com/spiffe/go-spiffe/v2/svid/x509svid"
 	"github.com/spiffe/go-spiffe/v2/workloadapi"
 	"github.com/spiffe/go-spiffe/v2/spiffetls/tlsconfig"

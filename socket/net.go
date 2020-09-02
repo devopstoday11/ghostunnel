@@ -110,7 +110,6 @@ func Open(network, address string) (net.Listener, error) {
 		ctx, cancel := context.WithCancel(context.Background())
 		defer cancel()
 		listener, err := spiffetls.Listen(ctx, network, address, tlsconfig.AuthorizeAny())
-		//listener, err := net.Listen(network, address)
 		if err != nil {
 			return nil, err
 		}
