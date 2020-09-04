@@ -1,7 +1,7 @@
 Ghostunnel
 ==========
 
-[![license](http://img.shields.io/badge/license-apache_2.0-blue.svg?style=flat)](https://raw.githubusercontent.com/square/ghostunnel/master/LICENSE) [![release](https://img.shields.io/github/release/square/ghostunnel.svg?style=flat)](https://github.com/square/ghostunnel/releases) [![docker](https://img.shields.io/badge/docker-hub-blue.svg?style=flat)](https://hub.docker.com/r/squareup/ghostunnel) [![travis](https://img.shields.io/travis/square/ghostunnel/master.svg?maxAge=3600&logo=travis&label=travis)](https://travis-ci.org/square/ghostunnel) [![appveyor](https://img.shields.io/appveyor/ci/csstaub/ghostunnel-58e7k.svg?maxAge=3600&logo=appveyor&label=appveyor)](https://ci.appveyor.com/project/csstaub/ghostunnel-58e7k) [![coverage](https://coveralls.io/repos/github/square/ghostunnel/badge.svg?branch=master)](https://coveralls.io/r/square/ghostunnel) [![report](https://goreportcard.com/badge/github.com/square/ghostunnel)](https://goreportcard.com/report/github.com/square/ghostunnel)
+[![license](http://img.shields.io/badge/license-apache_2.0-blue.svg?style=flat)](https://raw.githubusercontent.com/ghostunnel/ghostunnel/master/LICENSE) [![release](https://img.shields.io/github/release/ghostunnel/ghostunnel.svg?style=flat)](https://github.com/ghostunnel/ghostunnel/releases) [![docker](https://img.shields.io/badge/docker-hub-blue.svg?style=flat)](https://hub.docker.com/r/ghostunnel/ghostunnel) [![travis](https://img.shields.io/travis/ghostunnel/ghostunnel/master.svg?maxAge=3600&logo=travis&label=travis)](https://travis-ci.com/ghostunnel/ghostunnel) [![coverage](https://coveralls.io/repos/github/ghostunnel/ghostunnel/badge.svg?branch=master)](https://coveralls.io/r/ghostunnel/ghostunnel) [![report](https://goreportcard.com/badge/github.com/ghostunnel/ghostunnel)](https://goreportcard.com/report/github.com/ghostunnel/ghostunnel)
 
 👻
 
@@ -80,8 +80,8 @@ Note that ghostunnel requires Go 1.12 or later to build, and CGO is required for
 PKCS#11 support.  See also [CROSS-COMPILE](docs/CROSS-COMPILE.md) for
 instructions on how to cross-compile a custom build with CGO enabled.
 
-[rel]: https://github.com/square/ghostunnel/releases
-[hub]: https://hub.docker.com/r/squareup/ghostunnel
+[rel]: https://github.com/ghostunnel/ghostunnel/releases
+[hub]: https://hub.docker.com/r/ghostunnel/ghostunnel
 [xgo]: https://github.com/karalabe/xgo
 
 ### Develop
@@ -96,7 +96,7 @@ To run tests:
     make test
 
     # Option 2: run unit & integration tests in a Docker container
-    GO_VERSION=1.13.4 make docker-test
+    GO_VERSION=1.15 make docker-test
 
     # Open coverage information in browser
     go tool cover -html coverage-merged.out
