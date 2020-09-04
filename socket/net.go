@@ -107,8 +107,9 @@ func Open(network, address string) (net.Listener, error) {
 	case "systemd":
 		return systemdSocket(address)
 	case "unix":
+		// TODO: is context closed by spiffetls routines at some point or
+		// do we need to cancel() it manually somewhere?
 		ctx, cancel := context.WithCancel(context.Background())
-		defer cancel()
 		listener, err := spiffetls.Listen(ctx, network, address, tlsconfig.AuthorizeAny())
 		if err != nil {
 			return nil, err

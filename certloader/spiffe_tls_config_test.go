@@ -10,7 +10,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/spiffe/go-spiffe/spiffetest"
+	//"github.com/spiffe/go-spiffe/spiffetest"
 	"github.com/stretchr/testify/require"
 )
 
@@ -26,6 +26,7 @@ func (l *testLogger) Printf(format string, args ...interface{}) {
 	l.t.Logf(format, args...)
 }
 
+/*
 func TestWorkloadAPITLSConfigSource(t *testing.T) {
 	ca := spiffetest.NewCA(t)
 
@@ -99,6 +100,7 @@ func TestWorkloadAPITLSConfigSource(t *testing.T) {
 	require.Equal(t, int32(1), atomic.LoadInt32(&clientVerifyCallCount))
 	require.Equal(t, int32(1), atomic.LoadInt32(&serverVerifyCallCount))
 }
+*/
 
 func countVerifyPeerCertificate(callCount *int32) func(rawCerts [][]byte, verifiedChains [][]*x509.Certificate) error {
 	return func(rawCerts [][]byte, verifiedChains [][]*x509.Certificate) error {
