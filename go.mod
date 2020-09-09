@@ -9,6 +9,7 @@ require (
 	github.com/cyberdelia/go-metrics-graphite v0.0.0-20161219230853-39f87cc3b432
 	github.com/deathowl/go-metrics-prometheus v0.0.0-20200518174047-74482eab5bfb
 	github.com/ghostunnel/ghostunnel v1.5.3
+	github.com/golang/protobuf v1.4.2
 	github.com/google/uuid v1.1.1 // indirect
 	github.com/hashicorp/go-syslog v1.0.0
 	github.com/kavu/go_reuseport v1.5.0
@@ -25,7 +26,9 @@ require (
 	github.com/square/go-sq-metrics v0.0.0-20170531223841-ae72f332d0d9
 	github.com/stretchr/testify v1.6.1
 	golang.org/x/text v0.3.3 // indirect
+	google.golang.org/grpc v1.31.0
 	gopkg.in/alecthomas/kingpin.v2 v2.2.6
+	gopkg.in/square/go-jose.v2 v2.4.1
 )
 
 go 1.13

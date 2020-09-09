@@ -10,8 +10,8 @@ import (
 	"testing"
 	"time"
 
-	//"github.com/spiffe/go-spiffe/spiffetest"
 	"github.com/stretchr/testify/require"
+	"ghostunnel/certloader/tests"
 )
 
 type testLogger struct {
@@ -26,21 +26,8 @@ func (l *testLogger) Printf(format string, args ...interface{}) {
 	l.t.Logf(format, args...)
 }
 
-/*
 func TestWorkloadAPITLSConfigSource(t *testing.T) {
-	ca := spiffetest.NewCA(t)
-
-	cert, key := ca.CreateX509SVID("spiffe://domain.test/workload")
-
-	workloadAPI := spiffetest.NewWorkloadAPI(t, &spiffetest.X509SVIDResponse{
-		Bundle: ca.Roots(),
-		SVIDs: []spiffetest.X509SVID{
-			{
-				CertChain: cert,
-				Key:       key,
-			},
-		},
-	})
+	workloadAPI := tests.New(t)
 	defer workloadAPI.Stop()
 
 	log := newTestLogger(t)
@@ -100,7 +87,6 @@ func TestWorkloadAPITLSConfigSource(t *testing.T) {
 	require.Equal(t, int32(1), atomic.LoadInt32(&clientVerifyCallCount))
 	require.Equal(t, int32(1), atomic.LoadInt32(&serverVerifyCallCount))
 }
-*/
 
 func countVerifyPeerCertificate(callCount *int32) func(rawCerts [][]byte, verifiedChains [][]*x509.Certificate) error {
 	return func(rawCerts [][]byte, verifiedChains [][]*x509.Certificate) error {
