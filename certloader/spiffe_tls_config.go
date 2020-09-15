@@ -20,18 +20,18 @@ import (
 	"context"
 	"crypto/tls"
 
+	"github.com/spiffe/go-spiffe/v2/spiffetls/tlsconfig"
 	"github.com/spiffe/go-spiffe/v2/svid/x509svid"
 	"github.com/spiffe/go-spiffe/v2/workloadapi"
-	"github.com/spiffe/go-spiffe/v2/spiffetls/tlsconfig"
 )
 
 type spiffeTLSConfigSource struct {
 	source *workloadapi.X509Source
-	log  Logger
+	log	Logger
 }
 
 type spiffeLogger struct {
-	log Logger
+	log	Logger
 }
 
 func (l spiffeLogger) Debugf(format string, args ...interface{}) {
@@ -53,8 +53,8 @@ func (l spiffeLogger) Errorf(format string, args ...interface{}) {
 func TLSConfigSourceFromWorkloadAPI(addr string, log Logger) (TLSConfigSource, error) {
 	ctx := context.Background()
 	clientOptions := workloadapi.WithClientOptions(
-				workloadapi.WithAddr(addr),
-				workloadapi.WithLogger(spiffeLogger{log: log}))
+	    workloadapi.WithAddr(addr),
+	    workloadapi.WithLogger(spiffeLogger{log: log}))
 	source, err := workloadapi.NewX509Source(ctx, clientOptions)
 	if err != nil {
 		return nil, err
@@ -93,14 +93,14 @@ func (s *spiffeTLSConfigSource) newConfig(base *tls.Config) (*spiffeTLSConfig, e
 	s.log.Printf("waiting for initial SPIFFE Workload API update...")
 	s.log.Printf("received SPIFFE Workload API update.")
 	return &spiffeTLSConfig{
-		base: base,
+		base:	base,
 		source: s.source,
 	}, nil
 }
 
 type spiffeTLSConfig struct {
-	base *tls.Config
-	source *workloadapi.X509Source
+	base	*tls.Config
+	source	*workloadapi.X509Source
 }
 
 func (c *spiffeTLSConfig) GetClientConfig() *tls.Config {

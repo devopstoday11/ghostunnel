@@ -26,7 +26,8 @@ import (
 	"gopkg.in/square/go-jose.v2"
 	"gopkg.in/square/go-jose.v2/cryptosigner"
 	"gopkg.in/square/go-jose.v2/jwt"
-	"ghostunnel/certloader/tests/x509util"
+	//"ghostunnel/certloader/tests/x509util"
+	"github.com/square/ghostunnel/certloader/tests/x509util"
 )
 
 var (

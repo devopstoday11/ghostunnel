@@ -24,8 +24,7 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/metadata"
 	"google.golang.org/grpc/status"
-
-	"ghostunnel/certloader/tests/x509util"
+	"github.com/square/ghostunnel/certloader/tests/x509util"
 )
 
 var noIdentityError = status.Error(codes.PermissionDenied, "no identity issued")
@@ -46,7 +45,7 @@ type WorkloadAPI struct {
 func New(tb testing.TB) *WorkloadAPI {
 	w := &WorkloadAPI{
 		x509Chans:       make(map[chan *workload.X509SVIDResponse]struct{}),
-		jwtBundlesChans: make(map[chan *workload.JWTBundlesResponse]struct{}),
+		//jwtBundlesChans: make(map[chan *workload.JWTBundlesResponse]struct{}),
 	}
 
 	listener, err := net.Listen("tcp", "localhost:0")
